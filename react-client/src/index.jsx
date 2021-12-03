@@ -13,7 +13,7 @@ class App extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: '/services', 
+      url: '/', 
       success: (data) => {
         this.setState({
          services : data

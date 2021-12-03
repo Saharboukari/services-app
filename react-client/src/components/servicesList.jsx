@@ -9,6 +9,8 @@ const ServicesList= (props) => (
   <img src={props.service.imageUrl} className="service-image"/>
   {props.service.type} 
   {props.service.price}
+  <button>Add</button>
+  <button>remove</button>
   </div>
 )
 

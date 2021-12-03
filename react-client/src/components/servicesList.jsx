@@ -10,7 +10,7 @@ const ServicesList= (props) => (
   <h4>{props.service.type}</h4> 
   <h4>{props.service.price}</h4> 
   <button>Add</button>
-  <button>remove</button>
+  <button onClick={()=>{props.delete(props.service._id)}}>remove</button>
   </div>
 )
 

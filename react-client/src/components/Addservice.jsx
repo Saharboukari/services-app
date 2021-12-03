@@ -16,9 +16,18 @@ class Addservice extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    axios.post("/service", this.state).then(({ data }) => {
+    const test={
+        title:this.state.title,
+        type:this.state.type,
+        price:this.state.price
+    }
+    axios.post("/service", test).then(({ data }) => {
       this.props.addservice(data);
-    });
+      console.log(data,"hhthth");
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
   }
   render() {
     return (
@@ -41,6 +50,14 @@ class Addservice extends React.Component {
             value={this.state.type}
             onChange={this.handleChange}
           />
+          <br></br>
+          <label>Image :</label>
+          <br></br>
+          <input
+            type="url"
+            name="image"
+            value={this.state.image}
+            onChange={this.handleChange}/>
           <br></br>
           <label>Price :</label>
           <br></br>

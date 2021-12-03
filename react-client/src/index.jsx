@@ -5,6 +5,7 @@ import Service from './components/Service.jsx';
 // import Carousel from './components/Carousel.jsx';
  //import Client from './components/Client.jsx';
 import Addservice from './components/Addservice.jsx';
+import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,36 +14,44 @@ class App extends React.Component {
      services : []
     }
     this.addservice=this.addservice.bind(this)
+    this.deleteService=this.deleteService.bind(this)
   }
 
-  // componentDidMount() {
-  //   $.ajax({
-  //     url: '/', 
-  //     success: (data) => {
-  //       this.setState({
-  //        services : data
-  //       })
-  //     },
-  //     error: (err) => {
-  //       console.log('err', err);
-  //     }
-  //   });
-  // }
-  // handleChange(event) {
-  //   this.setState({[event.target.id]: event.target.value})
-  // }
+  componentDidMount() {
+    $.ajax({
+      url: '/services', 
+      success: (data) => {
+        this.setState({
+         services : data
+        })
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    });
+  }
+  
   // renderView() {
   //   const {view} = this.state;
   //     if (view === 'Service') {
   //       return <Service services={this.state.services} changeView={this.changeView}/>
-  //     } else if (view === 'Client') {
-  //       return <Client Service={this.state.services}/>
+  //     } else if (view === 'Addservice') {
+  //       return <AddserviceService={this.state.services}/>
   //     } 
   // }
   addservice(service){
   this.setState({
     services: [...this.state.services, service]
   });
+}
+deleteService(_id){
+  axios.delete(`/delete/${_id}`)
+  .then(()=>{
+    this.componentDidMount()
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
 }
 // addClient(client){
 //   this.setState({
@@ -56,7 +65,7 @@ class App extends React.Component {
        <h3>Add service</h3>
        <Addservice addservice={this.addservice} />
       <h1>Service list</h1> 
-     <Service services={this.state.services}/> 
+     <Service services={this.state.services} deleteService={this.deleteService}/> 
       {/* <Carousel/> */}
       {/* <div className="main">
           {this.renderView()}

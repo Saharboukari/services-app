@@ -3,10 +3,10 @@ import ServicesList from './ServicesList.jsx';
 
 const Service = (props) => (
   <div>
-    <h4> Srvice Component </h4>
+    <h4> Find your service </h4>
     There are { props.services.length } services.
-    { props.services.map(service => <ServicesList service={service}/>)}
-
+    { props.services.map((service,index) => <ServicesList service={service} key={index} delete={props.deleteService}/>)}
+    
   </div>
 )
 

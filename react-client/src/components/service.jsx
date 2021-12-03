@@ -1,5 +1,5 @@
 import React from 'react';
-import ServicesList from './servicesList.jsx';
+import ServicesList from './ServicesList.jsx';
 
 const Service = (props) => (
   <div>

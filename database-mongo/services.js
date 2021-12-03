@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 const db = require('./index.js');
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 
 var serviceSchima = mongoose.Schema({
     service_id: Number,

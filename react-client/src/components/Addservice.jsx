@@ -44,8 +44,8 @@ class Addservice extends React.Component {
     this.state = {
       title: "",
       type: "",
-      imageUrl: '',
-      price: "",
+      imageUrl: "",
+      price: ""
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -57,7 +57,9 @@ class Addservice extends React.Component {
     const test={
         title:this.state.title,
         type:this.state.type,
-        price:this.state.price
+        price:this.state.price,
+        imageUrl:this.state.imageUrl,
+
     }
     axios.post("/service", test).then(({ data }) => {
       this.props.addservice(data);
@@ -96,7 +98,7 @@ class Addservice extends React.Component {
           <input
            style ={style4}
             type="text"
-            name="image"
+            name="imageUrl"
             value={this.state.imageUrl}
             onChange={this.handleChange}/>
           <br></br>

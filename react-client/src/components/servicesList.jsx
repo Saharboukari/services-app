@@ -31,7 +31,7 @@ const ServicesList= (props) => (
   // </div>
   <div style={style12}>
   <h3 style={sttyle13}>{props.service.title}</h3>
-  <img src="https://www.referenceur.be/wp-content/uploads/2012/07/service-client-logo.jpg" className="service-image"/>
+  <img src={props.service.imageUrl} className="service-image"/>
   <h4>{props.service.type}</h4> 
   <h4>{props.service.price}</h4> 
   <button style={style10}>Add</button>

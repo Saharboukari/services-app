@@ -6,6 +6,7 @@ var serviceSchima = mongoose.Schema({
     service_id: Number,
     title: String,
     type:String,
+    imageUrl:String,
     price:Number
   
   });
